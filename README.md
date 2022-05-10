@@ -1,3 +1,9 @@
+#Login Details
+
+You can login /admin using this credentials.
+email: benjomabrasado@gmail.com
+password: 123456
+
 # SuitePortal
 
 This repository is intended to be a starter project for your assignment.
