@@ -1,0 +1,79 @@
+<!-- <mat-table [dataSource]="maintenance_request_list">
+  
+    <ng-container matColumnDef="unitNumber">
+        <div *matHeaderCellDef>Unit #</div>
+        <div *matCellDef="let single_maintenance">{{single_maintenance.unitNumber}}</div>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <div *matHeaderCellDef>Name</div>
+        <div *matCellDef="let single_maintenance">{{single_maintenance.name}}</div>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <div *matHeaderCellDef>Email</div>
+        <div *matCellDef="let single_maintenance">{{single_maintenance.email}}</div>
+    </ng-container>
+    <ng-container matColumnDef="serviceType">
+        <div *matHeaderCellDef>Service Type</div>
+        <div *matCellDef="let single_maintenance">{{single_maintenance.serviceType}}</div>
+    </ng-container>
+    <ng-container matColumnDef="summary">
+        <div *matHeaderCellDef>Summary</div>
+        <div *matCellDef="let single_maintenance">{{single_maintenance.summary}}</div>
+    </ng-container>
+    <ng-container matColumnDef="details">
+        <div *matHeaderCellDef>Details</div>
+        <div *matCellDef="let single_maintenance">{{single_maintenance.details}}</div>
+    </ng-container>
+  
+
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    
+	<mat-row *matRowDef="let row; columns: displayedColumns">
+	</mat-row>
+    
+</mat-table> -->
+
+<table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="unitNumber">
+        <th mat-header-cell *matHeaderCellDef> # </th>
+        <td mat-cell *matCellDef="let single_maintenance"> {{single_maintenance.unitNumber}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let single_maintenance"> {{single_maintenance.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let single_maintenance"> {{single_maintenance.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="serviceType">
+        <th mat-header-cell *matHeaderCellDef> Service Type </th>
+        <td mat-cell *matCellDef="let single_maintenance"> {{single_maintenance.serviceType}} </td>
+    </ng-container>
+    <ng-container matColumnDef="summary">
+        <th mat-header-cell *matHeaderCellDef> Summary </th>
+        <td mat-cell *matCellDef="let single_maintenance"> {{single_maintenance.summary}} </td>
+    </ng-container>
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef> Details </th>
+        <td mat-cell *matCellDef="let single_maintenance"> {{single_maintenance.details}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+      <td mat-cell *matCellDef="let single_maintenance">
+        <ng-container *ngIf="single_maintenance.close === false">
+            <button mat-raised-button color="accent"type="button" value="Close" (click)="closeMaintenanceRequest(single_maintenance.id)">Close</button>
+        </ng-container>
+        <ng-container *ngIf="single_maintenance.close === true">
+            Closed
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+</table>
